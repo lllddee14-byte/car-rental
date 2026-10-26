@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BizPilot AI — Your Business Before You Build It | مشروعي AI</title>
+  <meta name="description"
+    content="منصة المحاكاة الذكية للشركات والمشاريع — ابنِ نسخة رقمية من مشروعك، اختبر قراراتك، وعش معه 12 شهراً قبل أن تستثمر دولاراً واحداً." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Top App Navigation -->
+  <header class="top-header" id="topHeader">
+    <div class="header-container">
+      <div class="brand-group">
+        <div class="brand-logo-icon">
+          <i class="fa-solid fa-brain"></i>
+          <span class="pulse-ring"></span>
+        </div>
+        <div class="brand-titles">
+          <div class="brand-name">
+            <span class="highlight">BizPilot</span> <span class="ai-badge">AI</span>
+            <span class="ar-name">مشروعي AI</span>
+          </div>
+          <div class="brand-tagline" id="brandTagline">Your Business Before You Build It — جرّب مشروعك قبل أن تستثمر
+          </div>
+        </div>
+      </div>
+
+      <!-- Center Status: Current Active Business Banner (Hidden on Landing) -->
+      <div class="active-biz-pill hidden" id="activeBizPill">
+        <div class="biz-type-icon" id="headerBizIcon">☕</div>
+        <div class="biz-quick-details">
+          <span class="biz-name" id="headerBizName">Coffee House</span>
+          <span class="biz-meta" id="headerBizMeta">دمشق • رأس المال $10,000</span>
+        </div>
+        <div class="simulation-badge" id="simMonthBadge">
+          <i class="fa-regular fa-calendar"></i> الشهر <span id="headerMonthNum">1</span> / 12
+        </div>
+      </div>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <!-- Sound Toggle -->
+        <button class="icon-btn" id="soundToggleBtn" title="تفعيل/كتم المؤثرات الصوتية" aria-label="Toggle Sound">
+          <i class="fa-solid fa-volume-high" id="soundIcon"></i>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button class="icon-btn" id="themeToggleBtn" title="تبديل المظهر (ليلي / نهاري)" aria-label="Toggle Theme">
+          <i class="fa-solid fa-moon" id="themeIcon"></i>
+        </button>
+
+        <!-- Language Toggle -->
+        <button class="pill-btn lang-btn" id="langToggleBtn" title="Switch Language">
+          <i class="fa-solid fa-globe"></i>
+          <span id="langText">English</span>
+        </button>
+
+        <!-- New Business Button -->
+        <button class="btn btn-secondary btn-sm" id="btnNewProject" title="إنشاء مشروع جديد">
+          <i class="fa-solid fa-plus"></i>
+          <span>مشروع جديد</span>
+        </button>
+
+        <!-- SaaS / Education Portal Button -->
+        <button class="btn btn-outline btn-sm" id="btnSaasModal">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <span>الجامعات والأسعار</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-wrapper" id="mainWrapper">
+
+    <!-- ========================================== -->
+    <!-- VIEW 1: LANDING & BUSINESS CREATION HUB    -->
+    <!-- ========================================== -->
+    <section class="view-section active" id="viewLanding">
+
+      <!-- Hero Banner -->
+      <div class="hero-banner">
+        <div class="hero-glow-blob blob-1"></div>
+        <div class="hero-glow-blob blob-2"></div>
+
+        <div class="hero-content">
+          <div class="hero-pill-badge">
+            <i class="fa-solid fa-rocket"></i> محاكي الأعمال الذكي والتوأم الرقمي الأول عربياً
+          </div>
+          <h1 class="hero-title">
+            لا تبدأ مشروعك في الواقع قبل أن تعيش معه <span class="gradient-text">12 شهراً افتراضياً</span>
+          </h1>
+          <p class="hero-description">
+            اختبر الإيجار، الرواتب، التسعير، سلوك المنافسين، نفاد المخزون، والمواسم في بيئة محاكاة اقتصادية دقيقة مدعومة
+            بمستشار ذكاء اصطناعي يفهم أرقامك.
+          </p>
+
+          <!-- Natural Language Business Builder Prompt Box -->
+          <div class="ai-prompt-box">
+            <div class="ai-prompt-header">
+              <span class="ai-sparkle"><i class="fa-solid fa-wand-magic-sparkles"></i> <strong>المنشئ الذكي باللغة
+                  الطبيعية (Natural Language Builder)</strong></span>
+              <span class="ai-hint">اكتب فكرتك بأي لغة وسيقوم الذكاء الاصطناعي ببناء التوأم المالي فوراً</span>
+            </div>
+            <div class="prompt-input-wrapper">
+              <textarea id="nlPromptInput" class="prompt-textarea" rows="2"
+                placeholder="مثال: أريد فتح كافيه صغير في دمشق برأس مال 10,000$ مع 3 موظفين وأسعار المنتجات بين 2$ و 5$..."></textarea>
+              <button class="btn btn-primary btn-sparkle" id="btnNlGenerate">
+                <i class="fa-solid fa-bolt"></i>
+                <span>توليد التوأم الرقمي فوريًا</span>
+              </button>
+            </div>
+
+            <div class="prompt-suggestions">
+              <span class="suggestion-label">أمثلة سريعة:</span>
+              <button class="suggestion-tag"
+                data-prompt="أريد فتح مقهى مختص ومحمصة في الرياض برأس مال 25,000$ مع 4 موظفين وإيجار شهري 1,500$ وأسعار قهوة بين 3$ و 6$">☕
+                مقهى مختص بالرياض ($25k)</button>
+              <button class="suggestion-tag"
+                data-prompt="أريد إنشاء مطعم برجر وساندويشات في دبي برأس مال 35,000$ مع 5 موظفين وإيجار 2,800$">🍔 مطعم
+                برجر دبي ($35k)</button>
+              <button class="suggestion-tag"
+                data-prompt="متجر ملابس وأزياء أونلاين برأس مال 8,000$ مع موظف تسويق ومصاريف إعلانات 600$">👗 متجر أزياء
+                أونلاين ($8k)</button>
+              <button class="suggestion-tag"
+                data-prompt="مشروع حلويات ومخبوزات منزلي برأس مال 3,000$ مع بيع كيك ومعجنات عبر إنستغرام">🏠 مخبز منزلي
+                ($3k)</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category Selection & Presets -->
+      <div class="section-container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">أو اختر نوع المشروع للبدء المباشر</h2>
+            <p class="section-subtitle">قوالب اقتصادية جاهزة ومعدّة بدقة بناءً على نماذج السوق الحقيقية</p>
+          </div>
+          <button class="btn btn-outline" id="btnOpenCustomWizard">
+            <i class="fa-solid fa-sliders"></i>
+            <span>تخصيص يدوي متقدم (معالج تفصيلي)</span>
+          </button>
+        </div>
+
+        <div class="preset-grid" id="presetGrid">
+          <!-- Populated dynamically by app.js -->
+        </div>
+      </div>
+
+      <!-- Business Challenges Section (Gamification) -->
+      <div class="section-container mt-6">
+        <div class="section-header">
+          <div>
+            <span class="badge badge-gold"><i class="fa-solid fa-trophy"></i> التحديات العملية والمسابقات</span>
+            <h2 class="section-title">تحديات رواد الأعمال (Business Challenges)</h2>
+            <p class="section-subtitle">هل تملك المهارة لقيادة المشروع نحو الأرباح وتجاوز الأزمات؟</p>
+          </div>
+        </div>
+
+        <div class="challenges-grid" id="challengesGrid">
+          <!-- Populated dynamically by app.js -->
+        </div>
+      </div>
+
+      <!-- Core Features Pillars -->
+      <div class="section-container mt-6">
+        <div class="pillars-grid">
+          <div class="pillar-card">
+            <div class="pillar-icon bg-emerald"><i class="fa-solid fa-brain"></i></div>
+            <h3>Digital Business Twin</h3>
+            <p>نسخة رقمية حية من مشروعك تتنفس وتتأثر بالمبيعات والمخزون وسلوك الزبائن يوماً بيوم.</p>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon bg-purple"><i class="fa-solid fa-code-fork"></i></div>
+            <h3>What-If Scenario Sandbox</h3>
+            <p>اختبر قرارات التسعير، تقليل الإيجار، وتوظيف الكوادر وشاهد الأثر المالي فوراً قبل اعتماده.</p>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon bg-amber"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3>Dynamic Events Engine</h3>
+            <p>أكثر من 20 حدثاً واقعياً: حروب أسعار، غياب موظفين، ارتفاع أسعار الموردين، ومواسم الذروة.</p>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon bg-blue"><i class="fa-solid fa-robot"></i></div>
+            <h3>Data-Grounded AI Advisor</h3>
+            <p>مساعد ذكي يقرأ أرقام محاكاتك بدقة ويشرح لك أسباب تراجع الأرباح ويقترح حلولاً قابلة للتجربة.</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 2: DIGITAL TWIN SIMULATION DASHBOARD  -->
+    <!-- ========================================== -->
+    <section class="view-section" id="viewDashboard">
+
+      <!-- Simulation Control Bar -->
+      <div class="sim-control-bar">
+        <div class="sim-timeline-info">
+          <div class="season-badge" id="seasonBadge">
+            <i class="fa-solid fa-leaf" id="seasonIcon"></i>
+            <span id="seasonName">فصل الربيع</span>
+          </div>
+          <div class="timeline-stepper" id="timelineStepper">
+            <!-- 12 month dots generated by JS -->
+          </div>
+          <div class="current-month-display">
+            <span class="label">المحاكاة الزمنية:</span>
+            <span class="value" id="currentMonthText">الشهر 1 (البداية)</span>
+          </div>
+        </div>
+
+        <div class="sim-action-controls">
+          <!-- Entrepreneur Level Badge -->
+          <div class="level-badge" id="entrepreneurBadge" title="مستواك في ريادة الأعمال وفق أدائك">
+            <i class="fa-solid fa-medal"></i>
+            <span id="levelTitle">🌱 صانع مشاريع مبتدئ</span>
+            <span class="xp-pill" id="xpPill">0 XP</span>
+          </div>
+
+          <!-- Speed Toggles -->
+          <div class="speed-toggle-group">
+            <button class="speed-btn active" data-speed="1">1x</button>
+            <button class="speed-btn" data-speed="2">2x</button>
+          </div>
+
+          <!-- Auto Play / Step Next -->
+          <button class="btn btn-outline btn-sm" id="btnAutoSimulate" title="محاكاة السنة كاملة تلقائياً">
+            <i class="fa-solid fa-forward-fast"></i>
+            <span>محاكاة 12 شهراً</span>
+          </button>
+
+          <button class="btn btn-primary btn-pulse" id="btnNextMonth">
+            <i class="fa-solid fa-forward-step"></i>
+            <span>الانتقال للشهر التالي</span>
+          </button>
+
+          <button class="btn btn-ghost btn-sm" id="btnResetSim" title="إعادة تشغيل المحاكاة">
+            <i class="fa-solid fa-arrow-rotate-left"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Critical Alerts / Market Event Banner -->
+      <div class="alerts-stream-container" id="alertsStreamContainer">
+        <!-- Live dismissable/actionable alert banners -->
+      </div>
+
+      <!-- Primary Financial KPI Cards Grid -->
+      <div class="kpi-grid">
+
+        <!-- Monthly Revenue -->
+        <div class="kpi-card glass-card">
+          <div class="kpi-header">
+            <span class="kpi-title">الإيرادات الشهرية (Revenue)</span>
+            <span class="kpi-icon icon-revenue"><i class="fa-solid fa-chart-line"></i></span>
+          </div>
+          <div class="kpi-value" id="kpiRevenue">$0</div>
+          <div class="kpi-footer">
+            <span class="kpi-change positive" id="kpiRevenueChange">+0% مقارنة بالشهر السابق</span>
+            <span class="kpi-subtext" id="kpiCustomersCount">0 طلب هذا الشهر</span>
+          </div>
+        </div>
+
+        <!-- Monthly Expenses (OPEX + COGS) -->
+        <div class="kpi-card glass-card">
+          <div class="kpi-header">
+            <span class="kpi-title">المصاريف والتكاليف (Total Expenses)</span>
+            <span class="kpi-icon icon-expense"><i class="fa-solid fa-receipt"></i></span>
+          </div>
+          <div class="kpi-value" id="kpiExpenses">$0</div>
+          <div class="kpi-footer">
+            <span class="kpi-detail">تكلفة المواد (COGS): <strong id="kpiCogsVal">$0</strong></span>
+            <span class="kpi-detail">المصاريف (OPEX): <strong id="kpiOpexVal">$0</strong></span>
+          </div>
+        </div>
+
+        <!-- Net Profit / Loss -->
+        <div class="kpi-card glass-card" id="cardNetProfit">
+          <div class="kpi-header">
+            <span class="kpi-title">صافي الربح / الخسارة (Net Profit)</span>
+            <span class="kpi-icon icon-profit" id="iconProfit"><i class="fa-solid fa-sack-dollar"></i></span>
+          </div>
+          <div class="kpi-value" id="kpiNetProfit">$0</div>
+          <div class="kpi-footer">
+            <span class="kpi-margin-badge" id="kpiProfitMargin">هامش الربح: 0%</span>
+            <span class="kpi-subtext" id="kpiProfitStatus">مستقر</span>
+          </div>
+        </div>
+
+        <!-- Cash Balance & Runway -->
+        <div class="kpi-card glass-card">
+          <div class="kpi-header">
+            <span class="kpi-title">رصيد السيولة (Cash Balance)</span>
+            <span class="kpi-icon icon-cash"><i class="fa-solid fa-vault"></i></span>
+          </div>
+          <div class="kpi-value" id="kpiCashBalance">$0</div>
+          <div class="kpi-footer">
+            <span class="runway-pill safe" id="kpiRunway">فترة الأمان (Runway): 12+ شهر</span>
+            <span class="kpi-subtext" id="kpiInitialCapital">رأس المال: $10,000</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Secondary Metrics Bar (Break-Even, ROI, Capacity) -->
+      <div class="metrics-sub-bar">
+        <div class="sub-metric">
+          <span class="sub-label"><i class="fa-solid fa-scale-balanced"></i> نقطة التعادل (Break-Even):</span>
+          <span class="sub-val" id="metricBreakEven">$0 / شهر</span>
+        </div>
+        <div class="sub-metric">
+          <span class="sub-label"><i class="fa-solid fa-percent"></i> العائد على رأس المال (ROI):</span>
+          <span class="sub-val" id="metricROI">0.0%</span>
+        </div>
+        <div class="sub-metric">
+          <span class="sub-label"><i class="fa-solid fa-users-gear"></i> استغلال الطاقة التشغيلية:</span>
+          <span class="sub-val" id="metricCapacity">85%</span>
+        </div>
+        <div class="sub-metric">
+          <span class="sub-label"><i class="fa-solid fa-boxes-stacked"></i> كفاية المخزون الحالي:</span>
+          <span class="sub-val" id="metricStockDays">18 يوم</span>
+        </div>
+      </div>
+
+      <!-- Main Cockpit Tabs -->
+      <div class="cockpit-tabs-container">
+        <nav class="cockpit-nav">
+          <button class="tab-btn active" data-tab="tabOverview">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>لوحة المؤشرات والرسوم</span>
+          </button>
+
+          <button class="tab-btn" data-tab="tabDecisions">
+            <i class="fa-solid fa-crosshairs"></i>
+            <span>مركز اتخاذ القرار</span>
+            <span class="tab-badge pulse" id="decisionsBadge">1</span>
+          </button>
+
+          <button class="tab-btn" data-tab="tabWhatIf">
+            <i class="fa-solid fa-code-compare"></i>
+            <span>مختبر "ماذا لو؟" (What-If)</span>
+          </button>
+
+          <button class="tab-btn" data-tab="tabAiAdvisor">
+            <i class="fa-solid fa-robot"></i>
+            <span>مستشار AI الذكي</span>
+            <span class="ai-live-dot"></span>
+          </button>
+
+          <button class="tab-btn" data-tab="tabInventory">
+            <i class="fa-solid fa-boxes-stacked"></i>
+            <span>محاكي المخزون</span>
+          </button>
+
+          <button class="tab-btn" data-tab="tabStaff">
+            <i class="fa-solid fa-user-group"></i>
+            <span>الموظفون والإنتاجية</span>
+          </button>
+
+          <button class="tab-btn" data-tab="tabMarket">
+            <i class="fa-solid fa-chess"></i>
+            <span>المنافسون والعملاء</span>
+          </button>
+
+          <button class="tab-btn" data-tab="tabReport">
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+            <span>تقرير الجدوى الختامي</span>
+          </button>
+        </nav>
+
+        <!-- Tab 1: Overview & Dynamic Charts -->
+        <div class="tab-content active" id="tabOverview">
+          <div class="dashboard-split-grid">
+
+            <!-- Left/Main Chart: 12-Month Financial Performance & Trend -->
+            <div class="panel-card">
+              <div class="panel-header">
+                <div class="panel-title-group">
+                  <i class="fa-solid fa-chart-area panel-icon"></i>
+                  <div>
+                    <h3>مسار الأداء المالي (الإيرادات، المصاريف، صافي الربح)</h3>
+                    <span class="panel-subtitle">تتبع التدفقات النقدية شهراً بشهر مع المقارنة بنقطة التعادل</span>
+                  </div>
+                </div>
+                <div class="chart-legend">
+                  <span class="legend-item"><span class="legend-dot color-rev"></span> الإيراد</span>
+                  <span class="legend-item"><span class="legend-dot color-exp"></span> المصاريف</span>
+                  <span class="legend-item"><span class="legend-dot color-prof"></span> صافي الربح</span>
+                  <span class="legend-item"><span class="legend-dot color-cash"></span> رصيد الكاش</span>
+                </div>
+              </div>
+              <div class="chart-canvas-wrapper" id="mainChartWrapper">
+                <!-- Dynamic SVG Rendered by JS -->
+                <svg id="timelineChartSvg" class="interactive-chart-svg" viewBox="0 0 760 280"></svg>
+              </div>
+            </div>
+
+            <!-- Right Column: Products Breakdown & Cash Runway Gauge -->
+            <div class="panel-card-column">
+
+              <!-- Product Sales Matrix -->
+              <div class="panel-card">
+                <div class="panel-header">
+                  <div class="panel-title-group">
+                    <i class="fa-solid fa-mug-hot panel-icon"></i>
+                    <div>
+                      <h3>أداء المنتجات والتسعير</h3>
+                      <span class="panel-subtitle">المبيعات، الأسعار، وهامش مساهمة كل منتج</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="products-list-table" id="productsSalesTable">
+                  <!-- Generated by JS -->
+                </div>
+              </div>
+
+              <!-- Live Mini AI Insight -->
+              <div class="panel-card ai-summary-card">
+                <div class="ai-summary-header">
+                  <i class="fa-solid fa-wand-magic-sparkles"></i>
+                  <span>تشخيص مستشار الذكاء الاصطناعي لهذا الشهر:</span>
+                </div>
+                <p class="ai-summary-text" id="overviewAiDiagnostic">
+                  جاري تحليل أداء الشهر الأول... المؤشرات الأولية تدل على وضع سيولة مستقر مع حاجة لمراقبة تكلفة
+                  الإعلانات.
+                </p>
+                <div class="ai-summary-actions">
+                  <button class="btn btn-outline btn-xs" id="btnGoToAiTab">
+                    <i class="fa-solid fa-comments"></i> فتح الاستشارة الكاملة
+                  </button>
+                  <button class="btn btn-primary btn-xs" id="btnQuickOptimize">
+                    <i class="fa-solid fa-bolt"></i> اقتراح تحسين فوري
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Tab 2: Decision Center -->
+        <div class="tab-content" id="tabDecisions">
+          <div class="decision-center-layout">
+            <div class="decision-header-banner">
+              <div class="banner-icon"><i class="fa-solid fa-crosshairs"></i></div>
+              <div class="banner-text">
+                <h2>مركز اتخاذ القرارات الإستراتيجية (Decision Center)</h2>
+                <p>الأحداث السوقية والتشغيلية تتطلب تدخلك. اختبر أثر كل خيار وشاهد محاكاة العواقب قبل اعتماده.</p>
+              </div>
+            </div>
+
+            <div class="dilemmas-container" id="dilemmasContainer">
+              <!-- Rendered dynamically by app.js -->
+            </div>
+
+            <!-- Decision History Timeline -->
+            <div class="panel-card mt-5">
+              <div class="panel-header">
+                <h3><i class="fa-solid fa-clock-rotate-left"></i> سجل القرارات السابقة وأثرها المحسوب</h3>
+              </div>
+              <div class="decision-history-list" id="decisionHistoryList">
+                <div class="empty-history-text">لم يتم اتخاذ قرارات مصيرية بعد. ستظهر هنا عند تقدم المحاكاة.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: What-If Scenario Sandbox -->
+        <div class="tab-content" id="tabWhatIf">
+          <div class="whatif-sandbox-layout">
+
+            <div class="whatif-controls-panel panel-card">
+              <div class="panel-header">
+                <div class="panel-title-group">
+                  <i class="fa-solid fa-flask-vial panel-icon"></i>
+                  <div>
+                    <h3>مختبر سيناريوهات "ماذا لو؟" (Scenario Sandbox)</h3>
+                    <span class="panel-subtitle">غيّر الفرضيات وقارن النتائج دون المخاطرة بمشروعك الحقيقي</span>
+                  </div>
+                </div>
+                <button class="btn btn-primary btn-sm" id="btnSimulateScenario">
+                  <i class="fa-solid fa-play"></i> تشغيل المقارنة
+                </button>
+              </div>
+
+              <div class="sandbox-controls-grid">
+
+                <!-- Price Adjustment Slider -->
+                <div class="control-box">
+                  <div class="control-header">
+                    <label>تعديل أسعار المنتجات (%)</label>
+                    <span class="control-val" id="valSliderPrice">0% (بدون تغيير)</span>
+                  </div>
+                  <input type="range" min="-30" max="50" value="0" step="5" class="slider" id="sliderPriceChange" />
+                  <span class="control-hint">الرفع يزيد هامش الربح لكنه قد يقلل حجم الطلب وفق مرونة السعر.</span>
+                </div>
+
+                <!-- Marketing Budget Slider -->
+                <div class="control-box">
+                  <div class="control-header">
+                    <label>ميزانية التسويق الشهرية ($)</label>
+                    <span class="control-val" id="valSliderMarketing">$300</span>
+                  </div>
+                  <input type="range" min="0" max="2500" value="300" step="50" class="slider" id="sliderMarketing" />
+                  <span class="control-hint">التسويق يجلب زبائن إضافيين لكل شريحة بنسب متفاوتة.</span>
+                </div>
+
+                <!-- Employee Count Modifier -->
+                <div class="control-box">
+                  <div class="control-header">
+                    <label>عدد الموظفين الإضافيين</label>
+                    <span class="control-val" id="valSliderStaff">0 موظف إضافي</span>
+                  </div>
+                  <input type="range" min="-2" max="5" value="0" step="1" class="slider" id="sliderStaff" />
+                  <span class="control-hint">زيادة الموظفين ترفع الطاقة الاستيعابية وسرعة الخدمة لكنها تزيد
+                    الرواتب.</span>
+                </div>
+
+                <!-- Rent / OPEX Modifier -->
+                <div class="control-box">
+                  <div class="control-header">
+                    <label>التفاوض على الإيجار والمصاريف (%)</label>
+                    <span class="control-val" id="valSliderRent">0%</span>
+                  </div>
+                  <input type="range" min="-30" max="30" value="0" step="5" class="slider" id="sliderRent" />
+                  <span class="control-hint">تخفيض الإيجار يخفض نقطة التعادل ويزيد فترة الأمان للسيولة.</span>
+                </div>
+
+              </div>
+
+              <!-- Quick Hypothesis Buttons -->
+              <div class="quick-hypotheses">
+                <span class="label">فرضيات شائعة للاختبار السريع:</span>
+                <button class="btn btn-outline btn-xs btn-hypo" data-price="15" data-mkt="500" data-staff="0"
+                  data-rent="0">
+                  📈 رفع الأسعار 15% مع زيادة التسويق
+                </button>
+                <button class="btn btn-outline btn-xs btn-hypo" data-price="-10" data-mkt="800" data-staff="1"
+                  data-rent="0">
+                  🚀 استراتيجية النمو الهجومي (تخفيض 10% + توظيف)
+                </button>
+                <button class="btn btn-outline btn-xs btn-hypo" data-price="0" data-mkt="100" data-staff="-1"
+                  data-rent="-15">
+                  🛡️ وضع التقشف وتقليل المصاريف
+                </button>
+              </div>
+
+            </div>
+
+            <!-- Scenario Comparison Table & Diff Cards -->
+            <div class="panel-card mt-4">
+              <div class="panel-header">
+                <h3><i class="fa-solid fa-code-compare"></i> جدول المقارنة الفورية بين الوضع الحالي والسيناريو المقترح
+                </h3>
+              </div>
+
+              <div class="scenarios-compare-table-wrapper">
+                <table class="compare-table">
+                  <thead>
+                    <tr>
+                      <th>المؤشر المالي</th>
+                      <th>الوضع الحالي (Scenario Base)</th>
+                      <th>السيناريو المقترح (Scenario What-If)</th>
+                      <th>الفارق المالي (Delta)</th>
+                      <th>التقييم والأثر</th>
+                    </tr>
+                  </thead>
+                  <tbody id="whatIfCompareTbody">
+                    <!-- Populated by app.js -->
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="whatif-verdict-box" id="whatIfVerdictBox">
+                <div class="verdict-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                <div class="verdict-text" id="whatIfVerdictText">
+                  حرك أشرطة التحكم بالأعلى واضغط "تشغيل المقارنة" لمشاهدة التحليل والتوصية الرياضية.
+                </div>
+                <button class="btn btn-success btn-sm" id="btnApplyWhatIfToMain">
+                  <i class="fa-solid fa-check-double"></i> تطبيق هذا السيناريو على مشروعي الأساسي
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Tab 4: AI Business Advisor -->
+        <div class="tab-content" id="tabAiAdvisor">
+          <div class="ai-advisor-layout">
+
+            <!-- Left Side: Live Data Grounded Diagnostic Report -->
+            <div class="advisor-diagnostic-column">
+              <div class="panel-card advisor-hero-card">
+                <div class="advisor-avatar">
+                  <i class="fa-solid fa-robot"></i>
+                </div>
+                <div class="advisor-bio">
+                  <h3>المستشار الاقتصادي الذكي (BizPilot AI Advisor)</h3>
+                  <p>أنا أقرأ بيانات مبيعاتك وتكاليفك ومخزونك لحظياً وأشرح لك الواقع دون تنظير.</p>
+                </div>
+              </div>
+
+              <!-- Root-Cause Analysis Panel -->
+              <div class="panel-card mt-4">
+                <div class="panel-header">
+                  <h3><i class="fa-solid fa-magnifying-glass-chart"></i> التشخيص العميق للأداء المالي</h3>
+                </div>
+                <div class="diagnostic-breakdown" id="aiDiagnosticBreakdown">
+                  <!-- Generated by app.js -->
+                </div>
+              </div>
+
+              <!-- 1-Click Actionable Testable Suggestions -->
+              <div class="panel-card mt-4">
+                <div class="panel-header">
+                  <h3><i class="fa-solid fa-wand-magic-sparkles"></i> اقتراحات قابلة للاختبار المباشر</h3>
+                </div>
+                <div class="actionable-suggestions-list" id="aiSuggestionsList">
+                  <!-- Generated by app.js -->
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Right Side: Interactive Business Chatbot -->
+            <div class="advisor-chat-column panel-card">
+              <div class="chat-header">
+                <div class="chat-header-info">
+                  <i class="fa-solid fa-comments"></i>
+                  <div>
+                    <h4>استشر الذكاء الاصطناعي حول مشروعك</h4>
+                    <span>مربوط ببيانات الشهر الحالي والتوأم الرقمي</span>
+                  </div>
+                </div>
+                <button class="btn btn-ghost btn-xs" id="btnClearChat" title="مسح المحادثة">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </div>
+
+              <div class="chat-messages-scroll" id="chatMessagesScroll">
+                <div class="chat-msg ai-msg">
+                  <div class="msg-avatar"><i class="fa-solid fa-robot"></i></div>
+                  <div class="msg-body">
+                    <p>أهلاً بك! أنا مستشارك المالي لمشروع <strong id="chatBizName">كافيه</strong>. يمكنك سؤالي عن أسباب
+                      تراجع الأرباح، نصائح التسعير، أو أي قرار تخطط لاتخاذه وسأجيبك استناداً لأرقام محاكاتك.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Quick Questions Chips -->
+              <div class="chat-chips-row">
+                <button class="chip-btn" data-query="لماذا انخفض ربحي هذا الشهر؟">📉 لماذا انخفض ربحي؟</button>
+                <button class="chip-btn" data-query="هل مشروعي معرض لخطر الإفلاس؟">⚠️ هل مشروعي بخطر؟</button>
+                <button class="chip-btn" data-query="كيف أرفع هامش الربح؟">💡 كيف أرفع هامش الربح؟</button>
+                <button class="chip-btn" data-query="هل يجب أن أوظف موظفاً جديداً الآن؟">👥 هل أوظف موظفاً
+                  جديداً؟</button>
+              </div>
+
+              <!-- Chat Input Box -->
+              <form class="chat-input-form" id="chatInputForm">
+                <input type="text" id="chatUserInput" class="chat-input-field"
+                  placeholder="اسأل مستشارك عن أي قرار، تكلفة، أو فرصة..." autocomplete="off" />
+                <button type="submit" class="btn btn-primary btn-icon" id="btnSendChat">
+                  <i class="fa-solid fa-paper-plane"></i>
+                </button>
+              </form>
+
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Tab 5: Inventory Simulator -->
+        <div class="tab-content" id="tabInventory">
+          <div class="inventory-layout">
+            <div class="panel-card">
+              <div class="panel-header">
+                <div class="panel-title-group">
+                  <i class="fa-solid fa-boxes-stacked panel-icon"></i>
+                  <div>
+                    <h3>محاكي المخزون والمواد الأولية (Inventory & Supply Chain)</h3>
+                    <span class="panel-subtitle">تتبع استهلاك المواد مع كل عملية بيع وتفادي نفاذ المخزون أو الهدر</span>
+                  </div>
+                </div>
+                <button class="btn btn-primary btn-sm" id="btnRestockAll">
+                  <i class="fa-solid fa-cart-flatbed"></i> إعادة توريد شامل للمخزون
+                </button>
+              </div>
+
+              <div class="inventory-meters-grid" id="inventoryMetersGrid">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+
+            <!-- Wastage & Spoilage Alert -->
+            <div class="inventory-alert-box panel-card mt-4">
+              <div class="alert-icon-wrap"><i class="fa-solid fa-triangle-exclamation"></i></div>
+              <div class="alert-content">
+                <h4>نظام مراقبة الهدر والتلف (Wastage & Spoilage Protection)</h4>
+                <p id="wastageReportText">
+                  معدل الهدر الحالي يقدر بـ <strong>3.5%</strong> من إجمالي المواد. الحفاظ على دوران سريع للمخزون يمنع
+                  تلف المواد ويحافظ على السيولة النقدية.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 6: Staff & Operations -->
+        <div class="tab-content" id="tabStaff">
+          <div class="staff-layout">
+            <div class="panel-card">
+              <div class="panel-header">
+                <div class="panel-title-group">
+                  <i class="fa-solid fa-people-roof panel-icon"></i>
+                  <div>
+                    <h3>إدارة فريق العمل والطاقة التشغيلية (Employees & Productivity)</h3>
+                    <span class="panel-subtitle">تأثير الرواتب والإنتاجية وساعات العمل على جودة وسرعة المبيعات</span>
+                  </div>
+                </div>
+                <button class="btn btn-primary btn-sm" id="btnHireModal">
+                  <i class="fa-solid fa-user-plus"></i> توظيف عضو جديد
+                </button>
+              </div>
+
+              <div class="staff-roster-grid" id="staffRosterGrid">
+                <!-- Generated by JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 7: Competitors & Market Segments -->
+        <div class="tab-content" id="tabMarket">
+          <div class="market-layout">
+
+            <!-- Competitors Radar -->
+            <div class="panel-card">
+              <div class="panel-header">
+                <div class="panel-title-group">
+                  <i class="fa-solid fa-chess-knight panel-icon"></i>
+                  <div>
+                    <h3>رادار المنافسين في منطقتك (Competitor Matrix)</h3>
+                    <span class="panel-subtitle">مشروعك ليس في فراغ — راقب تحركات المنافسين وحصصهم السوقية</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="competitors-grid" id="competitorsGrid">
+                <!-- Generated by JS -->
+              </div>
+            </div>
+
+            <!-- Customer Segments -->
+            <div class="panel-card mt-4">
+              <div class="panel-header">
+                <div class="panel-title-group">
+                  <i class="fa-solid fa-users panel-icon"></i>
+                  <div>
+                    <h3>شرائح العملاء وحساسية الأسعار (Customer Segments)</h3>
+                    <span class="panel-subtitle">كيف يتجاوب كل قطاع مع أسعارك وحملاتك التسويقية</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="segments-grid" id="segmentsGrid">
+                <!-- Generated by JS -->
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Tab 8: Final Executive Report -->
+        <div class="tab-content" id="tabReport">
+          <div class="report-wrapper panel-card" id="printableReport">
+
+            <div class="report-header">
+              <div class="report-title-block">
+                <div class="badge badge-emerald">تقرير دراسة الجدوى والأداء الفعلي المتوقع</div>
+                <h2 id="reportBizTitle">مشروع Coffee House — ملخص محاكاة 12 شهراً</h2>
+                <p id="reportMetaInfo">المدينة: دمشق | رأس المال المستثمر: $10,000 | تاريخ المحاكاة: سبتمبر 2026</p>
+              </div>
+              <div class="report-actions-no-print">
+                <button class="btn btn-outline btn-sm" id="btnPrintReport">
+                  <i class="fa-solid fa-print"></i> طباعة / حفظ كـ PDF
+                </button>
+              </div>
+            </div>
+
+            <!-- Executive Summary Numbers -->
+            <div class="report-metrics-grid">
+              <div class="rep-card">
+                <span class="rep-label">رأس المال الابتدائي</span>
+                <span class="rep-val" id="repStartCapital">$10,000</span>
+              </div>
+              <div class="rep-card">
+                <span class="rep-label">إجمالي الإيرادات (12 شهر)</span>
+                <span class="rep-val text-emerald" id="repTotalRevenue">$0</span>
+              </div>
+              <div class="rep-card">
+                <span class="rep-label">إجمالي المصاريف والتكاليف</span>
+                <span class="rep-val text-rose" id="repTotalExpenses">$0</span>
+              </div>
+              <div class="rep-card">
+                <span class="rep-label">صافي النتيجة التشغيلية</span>
+                <span class="rep-val" id="repNetResult">$0</span>
+              </div>
+              <div class="rep-card">
+                <span class="rep-label">السيولة النقدية النهائية</span>
+                <span class="rep-val" id="repEndingCash">$0</span>
+              </div>
+              <div class="rep-card">
+                <span class="rep-label">العائد الكلي على الاستثمار (ROI)</span>
+                <span class="rep-val text-indigo" id="repROI">0%</span>
+              </div>
+            </div>
+
+            <!-- Financial P&L Statement Table -->
+            <div class="report-section mt-5">
+              <h3><i class="fa-solid fa-table-list"></i> قائمة الدخل الشهرية التراكمية (P&L Statement)</h3>
+              <div class="table-responsive">
+                <table class="report-table" id="reportPlTable">
+                  <!-- Rendered by JS -->
+                </table>
+              </div>
+            </div>
+
+            <!-- Decision Audit Trail -->
+            <div class="report-section mt-5">
+              <h3><i class="fa-solid fa-list-check"></i> سجل القرارات الإستراتيجية المتخذة خلال المحاكاة</h3>
+              <div class="report-decisions-list" id="reportDecisionsList">
+                <!-- Rendered by JS -->
+              </div>
+            </div>
+
+            <!-- AI Retrospective Assessment -->
+            <div class="report-section mt-5">
+              <h3><i class="fa-solid fa-brain"></i> التقييم الاستراتيجي الختامي للذكاء الاصطناعي (AI Post-Mortem)</h3>
+              <div class="ai-retrospective-box" id="reportAiRetrospective">
+                <!-- Rendered by JS -->
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- Modal 1: Custom Business Wizard Modal -->
+  <div class="modal-overlay hidden" id="modalCustomWizard">
+    <div class="modal-card modal-lg">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <i class="fa-solid fa-sliders"></i>
+          <div>
+            <h3>معالج بناء المشروع المخصص (Custom Business Twin)</h3>
+            <span class="modal-subtitle">أدخل تفاصيل التكاليف والمنتجات لبناء نموذج اقتصادي مخصص 100%</span>
+          </div>
+        </div>
+        <button class="modal-close-btn" id="btnCloseWizard">&times;</button>
+      </div>
+
+      <div class="modal-body">
+
+        <!-- Wizard Steps Nav -->
+        <div class="wizard-stepper">
+          <div class="step-item active" data-step="1">1. معلومات المشروع</div>
+          <div class="step-item" data-step="2">2. المصاريف (OPEX)</div>
+          <div class="step-item" data-step="3">3. المنتجات والتسعير</div>
+          <div class="step-item" data-step="4">4. الموظفون والمخزون</div>
+        </div>
+
+        <!-- Step 1: Basic Info -->
+        <div class="wizard-step-pane active" id="wizardStep1">
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label>اسم المشروع *</label>
+              <input type="text" id="wizBizName" class="form-control" value="Al-Diala Speciality Cafe" />
+            </div>
+            <div class="form-group">
+              <label>نوع النشاط *</label>
+              <select id="wizBizType" class="form-control">
+                <option value="cafe">☕ مقهى ومحمصة</option>
+                <option value="restaurant">🍔 مطعم ووجبات سريعة</option>
+                <option value="retail">👗 متجر ملابس وأزياء</option>
+                <option value="salon">💇 صالون حلاقة وعناية</option>
+                <option value="electronics">📱 متجر إلكترونيات وصيانة</option>
+                <option value="ecommerce">🛒 متجر إلكتروني</option>
+                <option value="home">🏠 مشروع منزلي</option>
+                <option value="services">💼 شركة خدمات</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>المدينة والمنطقة *</label>
+              <input type="text" id="wizBizLocation" class="form-control" value="دمشق — المالكي" />
+            </div>
+            <div class="form-group">
+              <label>رأس المال الابتدائي ($) *</label>
+              <input type="number" id="wizBizCapital" class="form-control" value="12000" min="1000" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Fixed & Variable Operating Expenses -->
+        <div class="wizard-step-pane" id="wizardStep2">
+          <p class="step-desc">أدخل المصاريف التشغيلية الشهرية المتوقعة (Fixed & Variable OPEX):</p>
+          <div class="form-grid-3">
+            <div class="form-group">
+              <label>الإيجار الشهري ($)</label>
+              <input type="number" id="wizRent" class="form-control" value="800" />
+            </div>
+            <div class="form-group">
+              <label>الكهرباء والمياه ($)</label>
+              <input type="number" id="wizUtilities" class="form-control" value="180" />
+            </div>
+            <div class="form-group">
+              <label>الإنترنت والاتصالات ($)</label>
+              <input type="number" id="wizInternet" class="form-control" value="50" />
+            </div>
+            <div class="form-group">
+              <label>ميزانية التسويق والإعلانات ($)</label>
+              <input type="number" id="wizMarketing" class="form-control" value="300" />
+            </div>
+            <div class="form-group">
+              <label>الضرائب والرسوم والترخيص ($)</label>
+              <input type="number" id="wizTaxes" class="form-control" value="120" />
+            </div>
+            <div class="form-group">
+              <label>نثريات وصيانة ومصاريف أخرى ($)</label>
+              <input type="number" id="wizMisc" class="form-control" value="150" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Products & Pricing Menu -->
+        <div class="wizard-step-pane" id="wizardStep3">
+          <div class="step-header-with-action">
+            <p class="step-desc">قائمة المنتجات، سعر البيع للزبون، وتكلفة المواد المباشرة (COGS):</p>
+            <button class="btn btn-outline btn-xs" id="btnAddWizProduct"><i class="fa-solid fa-plus"></i> إضافة
+              منتج</button>
+          </div>
+          <div class="wizard-products-list" id="wizProductsList">
+            <!-- Populated with default dynamic inputs -->
+          </div>
+        </div>
+
+        <!-- Step 4: Staff & Initial Stock -->
+        <div class="wizard-step-pane" id="wizardStep4">
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label>عدد الموظفين</label>
+              <input type="number" id="wizStaffCount" class="form-control" value="3" min="1" max="20" />
+            </div>
+            <div class="form-group">
+              <label>متوسط راتب الموظف شهرياً ($)</label>
+              <input type="number" id="wizAvgSalary" class="form-control" value="450" />
+            </div>
+            <div class="form-group">
+              <label>قيمة المخزون الأولي للمواد ($)</label>
+              <input type="number" id="wizInitialStockVal" class="form-control" value="1800" />
+            </div>
+            <div class="form-group">
+              <label>مستوى المنافسة في المنطقة</label>
+              <select id="wizCompetitionLevel" class="form-control">
+                <option value="low">منخفضة (1 منافس بعيد)</option>
+                <option value="medium" selected>متوسطة (منافسان رئيسيان)</option>
+                <option value="high">شديدة (3+ منافسين بنفس الشارع)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-ghost" id="btnWizPrev" disabled>السابق</button>
+        <button class="btn btn-primary" id="btnWizNext">التالي</button>
+        <button class="btn btn-success hidden" id="btnWizFinish">
+          <i class="fa-solid fa-check"></i> إطلاق التوأم الرقمي وبدء المحاكاة
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: SaaS & University Edition Modal -->
+  <div class="modal-overlay hidden" id="modalSaas">
+    <div class="modal-card modal-lg">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <div>
+            <h3>بوابة SaaS ونظام المحاكاة للجامعات وحاضنات الأعمال</h3>
+            <span class="modal-subtitle">حل متكامل للطلاب ورواد الأعمال والشركات الصغيرة</span>
+          </div>
+        </div>
+        <button class="modal-close-btn" id="btnCloseSaas">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="saas-tiers-grid">
+
+          <!-- Free Tier -->
+          <div class="saas-card">
+            <div class="tier-badge">النسخة المجانية</div>
+            <h4>Starter / Free</h4>
+            <div class="tier-price">$0 <span>/ دائماً</span></div>
+            <ul class="tier-features">
+              <li><i class="fa-solid fa-check"></i> محاكاة مشروع واحد (1 Business)</li>
+              <li><i class="fa-solid fa-check"></i> المحاكاة الزمنية الأساسية (12 شهراً)</li>
+              <li><i class="fa-solid fa-check"></i> 3 سيناريوهات What-If شهرياً</li>
+              <li><i class="fa-solid fa-check"></i> تقرير الجدوى الأساسي</li>
+            </ul>
+            <button class="btn btn-outline btn-block mt-4" disabled>خطتك الحالية</button>
+          </div>
+
+          <!-- Pro Tier -->
+          <div class="saas-card featured">
+            <div class="tier-badge popular">الأكثر شعبية</div>
+            <h4>Pro Entrepreneur</h4>
+            <div class="tier-price">$19 <span>/ شهرياً</span></div>
+            <ul class="tier-features">
+              <li><i class="fa-solid fa-check"></i> عدد غير محدود من المشاريع</li>
+              <li><i class="fa-solid fa-check"></i> مستشار AI غير محدود مع تشخيص حي</li>
+              <li><i class="fa-solid fa-check"></i> مقارنة غير محدودة لسيناريوهات What-If</li>
+              <li><i class="fa-solid fa-check"></i> محاكي المخزون المتقدم والمنافسين</li>
+              <li><i class="fa-solid fa-check"></i> تصدير تقارير PDF تنفيذية للمستثمرين</li>
+            </ul>
+            <button class="btn btn-primary btn-block mt-4" id="btnUpgradePro">ترقية الآن (تجربة 7 أيام مجاناً)</button>
+          </div>
+
+          <!-- University / Classroom Tier -->
+          <div class="saas-card">
+            <div class="tier-badge edu">للجامعات والمعاهد</div>
+            <h4>University Edition</h4>
+            <div class="tier-price">$199 <span>/ للفصل الدراسي</span></div>
+            <ul class="tier-features">
+              <li><i class="fa-solid fa-check"></i> لوحة تحكم الأستاذ والمشرف (Teacher Portal)</li>
+              <li><i class="fa-solid fa-check"></i> حسابات طلاب غير محدودة مع لوحة صدارة</li>
+              <li><i class="fa-solid fa-check"></i> إنشاء تحديات مخصصة مع قيود ميزانية</li>
+              <li><i class="fa-solid fa-check"></i> تقييم أداء الطلاب في إدارة السيولة والقرارات</li>
+            </ul>
+            <button class="btn btn-secondary btn-block mt-4" id="btnUniversityDemo">طلب حساب تجريبي للأكاديميين</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audio Synthesizer Engine & App Logic Scripts -->
+  <script src="app.js"></script>
+</body>
+
+</html>
